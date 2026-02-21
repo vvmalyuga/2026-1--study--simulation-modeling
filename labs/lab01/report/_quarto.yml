@@ -1,0 +1,17 @@
+project:
+  title: "report"
+  output-dir: "_output"
+
+engine: julia
+julia:
+  exeflags: ["--project=../project"]
+
+format:
+  html:
+    toc: true
+    number-sections: true
+  pdf:
+    toc: true
+    number-sections: true
+    include-in-header:
+      - file: _resources/tex/preamble.tex
