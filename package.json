@@ -1,0 +1,14 @@
+{
+  "name": "simulation-modeling",
+  "version": "1.0.0",
+  "description": "Имитационное моделирование",
+  "main": "index.js",
+  "repository": "https://github.com/yamadharma/course-directory-student-template.git",
+  "author": "vvmalyuga <1132236050@pfur.ru>",
+  "license": "CC-BY-4.0",
+    "config": {
+	"commitizen": {
+	    "path": "cz-customizable"
+	}
+    }
+}
