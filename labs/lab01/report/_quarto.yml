@@ -1,10 +1,6 @@
 project:
-  title: "report"
+  type: default
   output-dir: "_output"
-
-engine: julia
-julia:
-  exeflags: ["--project=../project"]
 
 format:
   html:

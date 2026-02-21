@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Дмитрий Сергеевич Кулябов">
+<meta name="author" content="Малюга Валерия Васильевна">
+<meta name="dcterms.date" content="2026-02-21">
 
 <title>Лабораторная работа №1</title>
 <style>
@@ -55,26 +56,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="simulation-modeling-lab01-report_files/libs/clipboard/clipboard.min.js"></script>
@@ -131,32 +113,46 @@ window.Quarto = {
   <li><a href="#цель-работы" id="toc-цель-работы" class="nav-link active" data-scroll-target="#цель-работы"><span class="header-section-number">1</span> Цель работы</a></li>
   <li><a href="#задание" id="toc-задание" class="nav-link" data-scroll-target="#задание"><span class="header-section-number">2</span> Задание</a></li>
   <li><a href="#теоретическое-введение" id="toc-теоретическое-введение" class="nav-link" data-scroll-target="#теоретическое-введение"><span class="header-section-number">3</span> Теоретическое введение</a></li>
-  <li><a href="#выполнение-лабораторной-работы" id="toc-выполнение-лабораторной-работы" class="nav-link" data-scroll-target="#выполнение-лабораторной-работы"><span class="header-section-number">4</span> Выполнение лабораторной работы</a></li>
+  <li><a href="#выполнение-лабораторной-работы" id="toc-выполнение-лабораторной-работы" class="nav-link" data-scroll-target="#выполнение-лабораторной-работы"><span class="header-section-number">4</span> Выполнение лабораторной работы</a>
+  <ul class="collapse">
+  <li><a href="#создание-рабочего-пространства" id="toc-создание-рабочего-пространства" class="nav-link" data-scroll-target="#создание-рабочего-пространства"><span class="header-section-number">4.1</span> Создание рабочего пространства</a></li>
+  <li><a href="#установка-необходимых-пакетов" id="toc-установка-необходимых-пакетов" class="nav-link" data-scroll-target="#установка-необходимых-пакетов"><span class="header-section-number">4.2</span> Установка необходимых пакетов</a></li>
+  <li><a href="#реализация-базовой-модели" id="toc-реализация-базовой-модели" class="nav-link" data-scroll-target="#реализация-базовой-модели"><span class="header-section-number">4.3</span> Реализация базовой модели</a></li>
+  <li><a href="#преобразование-в-литературный-стиль" id="toc-преобразование-в-литературный-стиль" class="nav-link" data-scroll-target="#преобразование-в-литературный-стиль"><span class="header-section-number">4.4</span> Преобразование в литературный стиль</a></li>
+  <li><a href="#генерация-производных-форматов" id="toc-генерация-производных-форматов" class="nav-link" data-scroll-target="#генерация-производных-форматов"><span class="header-section-number">4.5</span> Генерация производных форматов</a></li>
+  <li><a href="#запуск-jupyter-notebook" id="toc-запуск-jupyter-notebook" class="nav-link" data-scroll-target="#запуск-jupyter-notebook"><span class="header-section-number">4.6</span> Запуск Jupyter notebook</a></li>
+  <li><a href="#параметрическое-исследование" id="toc-параметрическое-исследование" class="nav-link" data-scroll-target="#параметрическое-исследование"><span class="header-section-number">4.7</span> Параметрическое исследование</a>
+  <ul class="collapse">
+  <li><a href="#бенчмаркинг-производительности" id="toc-бенчмаркинг-производительности" class="nav-link" data-scroll-target="#бенчмаркинг-производительности"><span class="header-section-number">4.7.1</span> Бенчмаркинг производительности</a></li>
+  <li><a href="#визуализация-результатов" id="toc-визуализация-результатов" class="nav-link" data-scroll-target="#визуализация-результатов"><span class="header-section-number">4.7.2</span> Визуализация результатов</a></li>
+  </ul></li>
+  <li><a href="#генерация-артефактов-для-параметрического-исследования" id="toc-генерация-артефактов-для-параметрического-исследования" class="nav-link" data-scroll-target="#генерация-артефактов-для-параметрического-исследования"><span class="header-section-number">4.8</span> Генерация артефактов для параметрического исследования</a></li>
+  <li><a href="#компиляция-отчета" id="toc-компиляция-отчета" class="nav-link" data-scroll-target="#компиляция-отчета"><span class="header-section-number">4.9</span> Компиляция отчета</a></li>
+  <li><a href="#интеграция-результатов-в-отчет" id="toc-интеграция-результатов-в-отчет" class="nav-link" data-scroll-target="#интеграция-результатов-в-отчет"><span class="header-section-number">4.10</span> Интеграция результатов в отчет</a></li>
+  </ul></li>
   <li><a href="#экспоненциальный-рост" id="toc-экспоненциальный-рост" class="nav-link" data-scroll-target="#экспоненциальный-рост"><span class="header-section-number">5</span> Экспоненциальный рост</a>
   <ul class="collapse">
-  <li><a href="#инициализация-проекта-и-загрузка-пакетов" id="toc-инициализация-проекта-и-загрузка-пакетов" class="nav-link" data-scroll-target="#инициализация-проекта-и-загрузка-пакетов"><span class="header-section-number">5.1</span> Инициализация проекта и загрузка пакетов</a></li>
-  <li><a href="#определение-модели" id="toc-определение-модели" class="nav-link" data-scroll-target="#определение-модели"><span class="header-section-number">5.2</span> Определение модели</a></li>
-  <li><a href="#первый-запуск-с-параметрами-по-умолчанию" id="toc-первый-запуск-с-параметрами-по-умолчанию" class="nav-link" data-scroll-target="#первый-запуск-с-параметрами-по-умолчанию"><span class="header-section-number">5.3</span> Первый запуск с параметрами по умолчанию</a></li>
-  <li><a href="#визуализация-результатов" id="toc-визуализация-результатов" class="nav-link" data-scroll-target="#визуализация-результатов"><span class="header-section-number">5.4</span> Визуализация результатов</a></li>
-  <li><a href="#анализ-результатов" id="toc-анализ-результатов" class="nav-link" data-scroll-target="#анализ-результатов"><span class="header-section-number">5.5</span> Анализ результатов</a></li>
-  <li><a href="#сохранение-всех-результатов" id="toc-сохранение-всех-результатов" class="nav-link" data-scroll-target="#сохранение-всех-результатов"><span class="header-section-number">5.6</span> Сохранение всех результатов</a></li>
+  <li><a href="#определение-модели" id="toc-определение-модели" class="nav-link" data-scroll-target="#определение-модели"><span class="header-section-number">5.1</span> Определение модели</a></li>
+  <li><a href="#первый-запуск-с-параметрами-по-умолчанию" id="toc-первый-запуск-с-параметрами-по-умолчанию" class="nav-link" data-scroll-target="#первый-запуск-с-параметрами-по-умолчанию"><span class="header-section-number">5.2</span> Первый запуск с параметрами по умолчанию</a></li>
+  <li><a href="#визуализация-результатов-1" id="toc-визуализация-результатов-1" class="nav-link" data-scroll-target="#визуализация-результатов-1"><span class="header-section-number">5.3</span> Визуализация результатов</a></li>
+  <li><a href="#анализ-результатов" id="toc-анализ-результатов" class="nav-link" data-scroll-target="#анализ-результатов"><span class="header-section-number">5.4</span> Анализ результатов</a></li>
+  <li><a href="#сохранение-всех-результатов" id="toc-сохранение-всех-результатов" class="nav-link" data-scroll-target="#сохранение-всех-результатов"><span class="header-section-number">5.5</span> Сохранение всех результатов</a></li>
   </ul></li>
-  <li><a href="#параметрическое-исследование-экспоненциального-роста" id="toc-параметрическое-исследование-экспоненциального-роста" class="nav-link" data-scroll-target="#параметрическое-исследование-экспоненциального-роста"><span class="header-section-number">6</span> Параметрическое исследование экспоненциального роста</a>
+  <li><a href="#параметрическое-исследование-экспоненциального-роста" id="toc-параметрическое-исследование-экспоненциального-роста" class="nav-link" data-scroll-target="#параметрическое-исследование-экспоненциального-роста"><span class="header-section-number">6</span> Параметрическое исследование экспоненциального роста</a></li>
+  <li><a href="#установка-каталогов" id="toc-установка-каталогов" class="nav-link" data-scroll-target="#установка-каталогов"><span class="header-section-number">7</span> Установка каталогов</a>
   <ul class="collapse">
-  <li><a href="#активация-проекта-и-загрузка-пакетов" id="toc-активация-проекта-и-загрузка-пакетов" class="nav-link" data-scroll-target="#активация-проекта-и-загрузка-пакетов"><span class="header-section-number">6.1</span> Активация проекта и загрузка пакетов</a></li>
-  <li><a href="#определение-модели-1" id="toc-определение-модели-1" class="nav-link" data-scroll-target="#определение-модели-1"><span class="header-section-number">6.2</span> Определение модели</a></li>
-  <li><a href="#определение-параметров-в-dict" id="toc-определение-параметров-в-dict" class="nav-link" data-scroll-target="#определение-параметров-в-dict"><span class="header-section-number">6.3</span> Определение параметров в Dict</a></li>
-  <li><a href="#функция-обертка-для-запуска-одного-эксперимента" id="toc-функция-обертка-для-запуска-одного-эксперимента" class="nav-link" data-scroll-target="#функция-обертка-для-запуска-одного-эксперимента"><span class="header-section-number">6.4</span> Функция-обертка для запуска одного эксперимента</a></li>
-  <li><a href="#запуск-базового-эксперимента" id="toc-запуск-базового-эксперимента" class="nav-link" data-scroll-target="#запуск-базового-эксперимента"><span class="header-section-number">6.5</span> Запуск базового эксперимента</a></li>
-  <li><a href="#визуализация-базового-эксперимента" id="toc-визуализация-базового-эксперимента" class="nav-link" data-scroll-target="#визуализация-базового-эксперимента"><span class="header-section-number">6.6</span> Визуализация базового эксперимента</a></li>
-  <li><a href="#параметрическое-сканирование" id="toc-параметрическое-сканирование" class="nav-link" data-scroll-target="#параметрическое-сканирование"><span class="header-section-number">6.7</span> Параметрическое сканирование</a></li>
-  <li><a href="#запуск-всех-экспериментов" id="toc-запуск-всех-экспериментов" class="nav-link" data-scroll-target="#запуск-всех-экспериментов"><span class="header-section-number">6.8</span> Запуск всех экспериментов</a></li>
-  <li><a href="#анализ-и-визуализация-результатов" id="toc-анализ-и-визуализация-результатов" class="nav-link" data-scroll-target="#анализ-и-визуализация-результатов"><span class="header-section-number">6.9</span> Анализ и визуализация результатов</a></li>
-  <li><a href="#бенчмаркинг" id="toc-бенчмаркинг" class="nav-link" data-scroll-target="#бенчмаркинг"><span class="header-section-number">6.10</span> Бенчмаркинг</a></li>
-  <li><a href="#сохранение-всех-результатов-1" id="toc-сохранение-всех-результатов-1" class="nav-link" data-scroll-target="#сохранение-всех-результатов-1"><span class="header-section-number">6.11</span> Сохранение всех результатов</a></li>
+  <li><a href="#определение-модели-1" id="toc-определение-модели-1" class="nav-link" data-scroll-target="#определение-модели-1"><span class="header-section-number">7.1</span> Определение модели</a></li>
+  <li><a href="#определение-параметров-в-dict" id="toc-определение-параметров-в-dict" class="nav-link" data-scroll-target="#определение-параметров-в-dict"><span class="header-section-number">7.2</span> Определение параметров в Dict</a></li>
+  <li><a href="#функция-обертка-для-запуска-одного-эксперимента" id="toc-функция-обертка-для-запуска-одного-эксперимента" class="nav-link" data-scroll-target="#функция-обертка-для-запуска-одного-эксперимента"><span class="header-section-number">7.3</span> Функция-обертка для запуска одного эксперимента</a></li>
+  <li><a href="#запуск-базового-эксперимента" id="toc-запуск-базового-эксперимента" class="nav-link" data-scroll-target="#запуск-базового-эксперимента"><span class="header-section-number">7.4</span> Запуск базового эксперимента</a></li>
+  <li><a href="#визуализация-базового-эксперимента" id="toc-визуализация-базового-эксперимента" class="nav-link" data-scroll-target="#визуализация-базового-эксперимента"><span class="header-section-number">7.5</span> Визуализация базового эксперимента</a></li>
+  <li><a href="#параметрическое-сканирование" id="toc-параметрическое-сканирование" class="nav-link" data-scroll-target="#параметрическое-сканирование"><span class="header-section-number">7.6</span> Параметрическое сканирование</a></li>
+  <li><a href="#запуск-всех-экспериментов" id="toc-запуск-всех-экспериментов" class="nav-link" data-scroll-target="#запуск-всех-экспериментов"><span class="header-section-number">7.7</span> Запуск всех экспериментов</a></li>
+  <li><a href="#анализ-и-визуализация-результатов" id="toc-анализ-и-визуализация-результатов" class="nav-link" data-scroll-target="#анализ-и-визуализация-результатов"><span class="header-section-number">7.8</span> Анализ и визуализация результатов</a></li>
+  <li><a href="#бенчмаркинг" id="toc-бенчмаркинг" class="nav-link" data-scroll-target="#бенчмаркинг"><span class="header-section-number">7.9</span> Бенчмаркинг</a></li>
+  <li><a href="#сохранение-всех-результатов-1" id="toc-сохранение-всех-результатов-1" class="nav-link" data-scroll-target="#сохранение-всех-результатов-1"><span class="header-section-number">7.10</span> Сохранение всех результатов</a></li>
   </ul></li>
-  <li><a href="#выводы" id="toc-выводы" class="nav-link" data-scroll-target="#выводы"><span class="header-section-number">7</span> Выводы</a></li>
-  <li><a href="#список-литературы" id="toc-список-литературы" class="nav-link" data-scroll-target="#список-литературы">Список литературы</a></li>
+  <li><a href="#выводы" id="toc-выводы" class="nav-link" data-scroll-target="#выводы"><span class="header-section-number">8</span> Выводы</a></li>
   </ul>
 </nav>
 </div>
@@ -165,7 +161,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Лабораторная работа №1</h1>
-<p class="subtitle lead">Экспоненциальный рост</p>
+<p class="subtitle lead">Подготовка стенда</p>
 </div>
 
 
@@ -174,7 +170,7 @@ window.Quarto = {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Дмитрий Сергеевич Кулябов, DSc <a href="mailto:kulyabov-ds@rudn.ru" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-0877-7063" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    <p class="author">Малюга Валерия Васильевна, студент <a href="mailto:1132236050@rudn.ru" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -186,6 +182,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
       
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 21, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -197,70 +199,259 @@ window.Quarto = {
 
 <section id="цель-работы" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Цель работы</h1>
-<p>Исследовать модель экспоненциального роста.</p>
+<p>Исследовать модель экспоненциального роста <span class="math inline">\(\frac{du}{dt} = \alpha u\)</span> с использованием инструментов литературного программирования.</p>
 </section>
 <section id="задание" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Задание</h1>
-<p>Реализовать модель экспоненциального роста в литературном стиле.</p>
+<ol type="1">
+<li>Создать рабочее пространство для лабораторной работы согласно методологии Denote</li>
+<li>Установить необходимые пакеты Julia</li>
+<li>Реализовать модель экспоненциального роста в литературном стиле</li>
+<li>Выполнить параметрическое исследование модели</li>
+<li>Сгенерировать производные форматы: чистый код, Jupyter notebook, документацию Quarto</li>
+<li>Интегрировать результаты в отчет</li>
+</ol>
 </section>
 <section id="теоретическое-введение" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Теоретическое введение</h1>
-<p>Экспоненциальный рост описывается уравнением <span class="math inline">\(\frac{du}{dt} = \alpha u\)</span>.</p>
+<p>Экспоненциальный рост описывается дифференциальным уравнением:</p>
+<p><span class="math display">\[ \frac{du}{dt} = \alpha u, \quad u(0) = u_0 \]</span></p>
+<p>где: - <span class="math inline">\(u\)</span> — текущее значение растущей величины - <span class="math inline">\(t\)</span> — время - <span class="math inline">\(\alpha\)</span> — константа роста</p>
+<p>Решение уравнения:</p>
+<p><span class="math display">\[ u(t) = u_0 e^{\alpha t} \]</span></p>
+<p>Время удвоения популяции:</p>
+<p><span class="math display">\[ T_2 = \frac{\ln 2}{\alpha} \]</span></p>
 </section>
 <section id="выполнение-лабораторной-работы" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Выполнение лабораторной работы</h1>
+<section id="создание-рабочего-пространства" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="создание-рабочего-пространства"><span class="header-section-number">4.1</span> Создание рабочего пространства</h2>
+<p>В соответствии с разделом 1.8.4 методички была создана структура каталогов:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/work/study/2026-1/2026-1==study--simulation-modeling</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/work/study/2026-1/2026-1==study--simulation-modeling</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/username_0/2026-1==study--simulation-modeling.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig:dir-create" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Создание рабочего каталога курса</figcaption>
+</figure>
+</div>
+<p>Далее была выполнена инициализация курса:</p>
+<div id="fig:dir-create" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Инициализация курса</figcaption>
+</figure>
+</div>
+</section>
+<section id="установка-необходимых-пакетов" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="установка-необходимых-пакетов"><span class="header-section-number">4.2</span> Установка необходимых пакетов</h2>
+<p>Согласно разделу 1.9 методички, был создан проект DrWatson в каталоге лабораторной работы и установлены необходимые пакеты:</p>
+<div id="fig:pkg-install" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/3.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Установка пакетов в Julia REPL</figcaption>
+</figure>
+</div>
+<div id="fig:drwatson-struct" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/4.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Структура проекта DrWatson</figcaption>
+</figure>
+</div>
+</section>
+<section id="реализация-базовой-модели" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="реализация-базовой-модели"><span class="header-section-number">4.3</span> Реализация базовой модели</h2>
+<p>В соответствии с разделом 1.10.2 был создан скрипт scripts/01_exponential_growth.jl с реализацией модели экспоненциального роста.</p>
+<p>Результат выполнения скрипта:</p>
+<pre><code>Первые 5 строк результатов:
+5×2 DataFrame
+ Row │ t        u        
+     │ Float64  Float64  
+─────┼───────────────────
+   1 │ 0.0      1.0
+   2 │ 0.1      1.03045
+   3 │ 0.2      1.06184
+   4 │ 0.3      1.09417
+   5 │ 0.4      1.1275
+
+Аналитическое время удвоения: 2.31</code></pre>
+<div id="fig:base-execution" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/5.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Выполнение базового скрипта</figcaption>
+</figure>
+</div>
+</section>
+<section id="преобразование-в-литературный-стиль" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="преобразование-в-литературный-стиль"><span class="header-section-number">4.4</span> Преобразование в литературный стиль</h2>
+<p>Согласно разделу 1.10.3, скрипт был преобразован в литературный стиль с Markdown-разметкой. Файл scripts/01_exponential_growth_lit.jl содержит описание модели, пояснения и код.</p>
+</section>
+<section id="генерация-производных-форматов" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="генерация-производных-форматов"><span class="header-section-number">4.5</span> Генерация производных форматов</h2>
+<p>Для автоматической генерации артефактов был создан скрипт scripts/tangle.jl (раздел 1.10.3.3), который создает чистый код, Jupyter notebook и Quarto-документ из литературного скрипта.</p>
+</section>
+<section id="запуск-jupyter-notebook" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="запуск-jupyter-notebook"><span class="header-section-number">4.6</span> Запуск Jupyter notebook</h2>
+<p>Из литературного скрипта был сгенерирован Jupyter notebook и успешно выполнен:</p>
+<div id="fig:jupyter" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/6.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Выполнение Jupyter notebook</figcaption>
+</figure>
+</div>
+</section>
+<section id="параметрическое-исследование" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="параметрическое-исследование"><span class="header-section-number">4.7</span> Параметрическое исследование</h2>
+<p>В соответствии с разделом 1.10.4 был создан параметрический скрипт scripts/02_exponential_growth_params.jl для исследования зависимости решения от параметра α:</p>
+<div id="fig:param-code" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/10.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Код параметрического исследования</figcaption>
+</figure>
+</div>
+<p>Для каждого значения α было проведено численное решение и вычислено время удвоения. Результаты сведены в таблицу:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>α</th>
+<th>Время удвоения (теория)</th>
+<th>Время удвоения (численно)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.1</td>
+<td>6.93</td>
+<td>6.93</td>
+</tr>
+<tr class="even">
+<td>0.3</td>
+<td>2.31</td>
+<td>2.31</td>
+</tr>
+<tr class="odd">
+<td>0.5</td>
+<td>1.39</td>
+<td>1.39</td>
+</tr>
+<tr class="even">
+<td>0.8</td>
+<td>0.87</td>
+<td>0.87</td>
+</tr>
+<tr class="odd">
+<td>1.0</td>
+<td>0.69</td>
+<td>0.69</td>
+</tr>
+</tbody>
+</table>
+<section id="бенчмаркинг-производительности" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="бенчмаркинг-производительности"><span class="header-section-number">4.7.1</span> Бенчмаркинг производительности</h3>
+<p>Для оценки производительности решения был проведен бенчмаркинг при различных значениях α:</p>
+<div id="fig:benchmark" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/7.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Результаты бенчмаркинга</figcaption>
+</figure>
+</div>
+<p>Среднее время вычисления составило примерно 0.0002 секунды для всех значений α, что демонстрирует высокую эффективность решателя Tsit5().</p>
+</section>
+<section id="визуализация-результатов" class="level3" data-number="4.7.2">
+<h3 data-number="4.7.2" class="anchored" data-anchor-id="визуализация-результатов"><span class="header-section-number">4.7.2</span> Визуализация результатов</h3>
+<p>Для визуализации результатов был построен график зависимости времени удвоения от параметра α:</p>
+<div id="fig:doubling-time" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/8.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>График зависимости времени удвоения от α</figcaption>
+</figure>
+</div>
+<p>Как видно из графика, численные результаты полностью совпадают с теоретической кривой <span class="math inline">\(T_2 = \ln(2)/\alpha\)</span>, что подтверждает корректность реализации.</p>
+</section>
+</section>
+<section id="генерация-артефактов-для-параметрического-исследования" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="генерация-артефактов-для-параметрического-исследования"><span class="header-section-number">4.8</span> Генерация артефактов для параметрического исследования</h2>
+<p>Для параметрического скрипта также были сгенерированы производные форматы:</p>
+<div id="fig:param-tangle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/9.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Генерация артефактов для параметрического скрипта</figcaption>
+</figure>
+</div>
+</section>
+<section id="компиляция-отчета" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="компиляция-отчета"><span class="header-section-number">4.9</span> Компиляция отчета</h2>
+<p>Компиляция отчета с помощью Quarto:</p>
+<div id="fig:quarto-render" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./image/11.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Компиляция отчета в Quarto</figcaption>
+</figure>
+</div>
+<p>В процессе компиляции были выполнены все ячейки кода из подключенных литературных скриптов, что гарантирует воспроизводимость результатов.</p>
+</section>
+<section id="интеграция-результатов-в-отчет" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="интеграция-результатов-в-отчет"><span class="header-section-number">4.10</span> Интеграция результатов в отчет</h2>
+<p>Сгенерированные литературные документы были интегрированы в отчет с помощью директив include:</p>
+<p>using DrWatson <span class="citation" data-cites="quickactivate">@quickactivate</span> “/home/vvmalyuga/work/study/2026-1/2026-1==study–simulation-modeling/labs/lab01/project” using DifferentialEquations using Plots using DataFrames using JLD2 using BenchmarkTools</p>
+<p>plots_subdir = plotsdir(“01_exponential_growth_lit”) data_subdir = datadir(“01_exponential_growth_lit”) mkpath(plots_subdir) mkpath(data_subdir)</p>
+</section>
 </section>
 <section id="экспоненциальный-рост" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Экспоненциальный рост</h1>
 <p><strong>Цель:</strong> Исследовать решение уравнения du/dt = αu.</p>
-<section id="инициализация-проекта-и-загрузка-пакетов" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="инициализация-проекта-и-загрузка-пакетов"><span class="header-section-number">5.1</span> Инициализация проекта и загрузка пакетов</h2>
-<div id="2" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"project"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>script_name <span class="op">=</span> <span class="fu">splitext</span>(<span class="fu">basename</span>(<span class="cn">PROGRAM_FILE</span>))[<span class="fl">1</span>]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mkpath</span>(<span class="fu">plotsdir</span>(script_name))</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mkpath</span>(<span class="fu">datadir</span>(script_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<section id="определение-модели" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="определение-модели"><span class="header-section-number">5.1</span> Определение модели</h2>
+<p>Уравнение экспоненциального роста:</p>
+<p>du/dt = αu, u(0) = u0</p>
+<div id="69933b68" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">exponential_growth!</span>(du, u, p, t)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    α <span class="op">=</span> p</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    du[<span class="fl">1</span>] <span class="op">=</span> α <span class="op">*</span> u[<span class="fl">1</span>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
 <pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
 │ (given dir: /home/vvmalyuga)
 └ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/worker"</code></pre>
-</div>
-</div>
-</section>
-<section id="определение-модели" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="определение-модели"><span class="header-section-number">5.2</span> Определение модели</h2>
-<p>Уравнение экспоненциального роста:</p>
-<p>du/dt = αu, u(0) = u0</p>
-<div id="4" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">exponential_growth!</span>(du, u, p, t)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    α <span class="op">=</span> p</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    du[<span class="fl">1</span>] <span class="op">=</span> α <span class="op">*</span> u[<span class="fl">1</span>]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>exponential_growth! (generic function with 1 method)</code></pre>
 </div>
 </div>
 </section>
-<section id="первый-запуск-с-параметрами-по-умолчанию" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="первый-запуск-с-параметрами-по-умолчанию"><span class="header-section-number">5.3</span> Первый запуск с параметрами по умолчанию</h2>
+<section id="первый-запуск-с-параметрами-по-умолчанию" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="первый-запуск-с-параметрами-по-умолчанию"><span class="header-section-number">5.2</span> Первый запуск с параметрами по умолчанию</h2>
 <p>Зададим начальные параметры:</p>
-<div id="6" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>u0 <span class="op">=</span> [<span class="fl">1.0</span>]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> <span class="fl">0.3</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>tspan <span class="op">=</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> <span class="fu">ODEProblem</span>(exponential_growth!, u0, tspan, α)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> <span class="fu">solve</span>(prob, <span class="fu">Tsit5</span>(), saveat<span class="op">=</span><span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div id="d8a44cdd" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>u0 <span class="op">=</span> [<span class="fl">1.0</span>]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>tspan <span class="op">=</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> <span class="fu">ODEProblem</span>(exponential_growth!, u0, tspan, α)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> <span class="fu">solve</span>(prob, <span class="fu">Tsit5</span>(), saveat<span class="op">=</span><span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>retcode: Success
 Interpolation: 1st order linear
 t: 101-element Vector{Float64}:
@@ -274,7 +465,13 @@ t: 101-element Vector{Float64}:
   0.7
   0.8
   0.9
+  1.0
+  1.1
+  1.2
   ⋮
+  8.9
+  9.0
+  9.1
   9.2
   9.3
   9.4
@@ -295,7 +492,13 @@ u: 101-element Vector{Vector{Float64}}:
  [1.2336780571872568]
  [1.2712491879500347]
  [1.3099646073864084]
+ [1.349859018827382]
+ [1.3909682733549678]
+ [1.433329396499376]
  ⋮
+ [14.439892233074882]
+ [14.879627505035817]
+ [15.332755966505253]
  [15.799688704153079]
  [16.280848966976613]
  [16.776672166300525]
@@ -308,24 +511,50 @@ u: 101-element Vector{Vector{Float64}}:
 </div>
 </div>
 </section>
-<section id="визуализация-результатов" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="визуализация-результатов"><span class="header-section-number">5.4</span> Визуализация результатов</h2>
+<section id="визуализация-результатов-1" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="визуализация-результатов-1"><span class="header-section-number">5.3</span> Визуализация результатов</h2>
 <p>Построим график решения:</p>
-<div id="8" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sol, label<span class="op">=</span><span class="st">"u(t)"</span>, xlabel<span class="op">=</span><span class="st">"Время t"</span>, ylabel<span class="op">=</span><span class="st">"Популяция u"</span>, title<span class="op">=</span><span class="st">"Экспоненциальный рост (α = </span><span class="sc">$</span><span class="st">α)", </span>lw<span class="st">=2, legend=:topleft)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"exponential_growth_α=</span><span class="sc">$</span><span class="st">α.</span>png<span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/worker/exponential_growth_α=0.3.png"</code></pre>
+<div id="820da722" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plots_subdir <span class="op">=</span> <span class="fu">plotsdir</span>(<span class="st">"01_exponential_growth_lit"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mkpath</span>(plots_subdir)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sol, label<span class="op">=</span><span class="st">"u(t)"</span>, xlabel<span class="op">=</span><span class="st">"Время t"</span>, ylabel<span class="op">=</span><span class="st">"Популяция u"</span>, </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>     title<span class="op">=</span><span class="st">"Экспоненциальный рост (α = </span><span class="sc">$</span><span class="st">α)", </span>lw<span class="st">=2, legend=:topleft)</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">joinpath</span>(plots_subdir, <span class="st">"exponential_growth_α=</span><span class="sc">$</span><span class="st">α.</span>png<span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/01_exponential_growth_lit/exponential_growth_α=0.3.png"</code></pre>
 </div>
 </div>
 </section>
-<section id="анализ-результатов" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="анализ-результатов"><span class="header-section-number">5.5</span> Анализ результатов</h2>
+<section id="анализ-результатов" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="анализ-результатов"><span class="header-section-number">5.4</span> Анализ результатов</h2>
 <p>Создадим таблицу с данными:</p>
-<div id="10" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(t<span class="op">=</span>sol.t, u<span class="op">=</span><span class="fu">first</span>.(sol.u))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Первые 5 строк результатов:"</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="fu">first</span>(df, <span class="fl">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a9a22e2e" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(t<span class="op">=</span>sol.t, u<span class="op">=</span><span class="fu">first</span>.(sol.u))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Первые 5 строк результатов:"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="fu">first</span>(df, <span class="fl">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Первые 5 строк результатов:
 5×2 DataFrame
@@ -340,179 +569,291 @@ u: 101-element Vector{Vector{Float64}}:
 </div>
 </div>
 <p>Вычислим удвоение популяции:</p>
-<div id="12" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>doubling_time <span class="op">=</span> <span class="fu">log</span>(<span class="fl">2</span>) <span class="op">/</span> α</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Аналитическое время удвоения: "</span>, <span class="fu">round</span>(doubling_time; digits<span class="op">=</span><span class="fl">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2e3c7c5c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>doubling_time <span class="op">=</span> <span class="fu">log</span>(<span class="fl">2</span>) <span class="op">/</span> α</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Аналитическое время удвоения: "</span>, <span class="fu">round</span>(doubling_time; digits<span class="op">=</span><span class="fl">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Аналитическое время удвоения: 2.31</code></pre>
 </div>
-</div>
-</section>
-<section id="сохранение-всех-результатов" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="сохранение-всех-результатов"><span class="header-section-number">5.6</span> Сохранение всех результатов</h2>
-<div id="14" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@save</span> <span class="fu">datadir</span>(script_name, <span class="st">"all_results.jld2"</span>) df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="параметрическое-исследование-экспоненциального-роста" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Параметрическое исследование экспоненциального роста</h1>
-<section id="активация-проекта-и-загрузка-пакетов" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="активация-проекта-и-загрузка-пакетов"><span class="header-section-number">6.1</span> Активация проекта и загрузка пакетов</h2>
-<div id="16" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"project"</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<div class="cell-output cell-output-stderr">
 <pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
 │ (given dir: /home/vvmalyuga)
 └ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
 </div>
 </div>
-<p>Установка каталогов</p>
-<div id="18" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>script_name <span class="op">=</span> <span class="fu">splitext</span>(<span class="fu">basename</span>(<span class="cn">PROGRAM_FILE</span>))[<span class="fl">1</span>]</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkpath</span>(<span class="fu">plotsdir</span>(script_name))</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkpath</span>(<span class="fu">datadir</span>(script_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/worker"</code></pre>
-</div>
-</div>
 </section>
-<section id="определение-модели-1" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="определение-модели-1"><span class="header-section-number">6.2</span> Определение модели</h2>
+<section id="сохранение-всех-результатов" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="сохранение-всех-результатов"><span class="header-section-number">5.5</span> Сохранение всех результатов</h2>
+<div id="208c7590" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>data_subdir <span class="op">=</span> <span class="fu">datadir</span>(<span class="st">"01_exponential_growth_lit"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mkpath</span>(data_subdir)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="pp">@save</span> <span class="fu">joinpath</span>(data_subdir, <span class="st">"all_results.jld2"</span>) df</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Результаты сохранены в: "</span>, <span class="fu">joinpath</span>(data_subdir, <span class="st">"all_results.jld2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Результаты сохранены в: /home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/01_exponential_growth_lit/all_results.jld2</code></pre>
+</div>
+</div>
+<p>using DrWatson <span class="citation" data-cites="quickactivate">@quickactivate</span> “/home/vvmalyuga/work/study/2026-1/2026-1==study–simulation-modeling/labs/lab01/project” using DifferentialEquations using Plots using DataFrames using JLD2 using BenchmarkTools</p>
+<p>plots_subdir = plotsdir(script_name) data_subdir = datadir(script_name) mkpath(plots_subdir) mkpath(data_subdir)</p>
+</section>
+</section>
+<section id="параметрическое-исследование-экспоненциального-роста" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Параметрическое исследование экспоненциального роста</h1>
+</section>
+<section id="установка-каталогов" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Установка каталогов</h1>
+<div id="a77e05a0" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>script_name <span class="op">=</span> <span class="fu">splitext</span>(<span class="fu">basename</span>(<span class="pp">@__FILE__</span>))[<span class="fl">1</span>]</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mkpath</span>(<span class="fu">plotsdir</span>(script_name))</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mkpath</span>(<span class="fu">datadir</span>(script_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/In[8]"</code></pre>
+</div>
+</div>
+<section id="определение-модели-1" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="определение-модели-1"><span class="header-section-number">7.1</span> Определение модели</h2>
 <p>Модель: du/dt = α * u</p>
-<div id="20" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">exponential_growth!</span>(du, u, p, t)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    α <span class="op">=</span> p.α</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    du[<span class="fl">1</span>] <span class="op">=</span> α <span class="op">*</span> u[<span class="fl">1</span>]</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div id="019df98e" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">exponential_growth!</span>(du, u, p, t)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    α <span class="op">=</span> p.α</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    du[<span class="fl">1</span>] <span class="op">=</span> α <span class="op">*</span> u[<span class="fl">1</span>]</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>exponential_growth! (generic function with 1 method)</code></pre>
 </div>
 </div>
 </section>
-<section id="определение-параметров-в-dict" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="определение-параметров-в-dict"><span class="header-section-number">6.3</span> Определение параметров в Dict</h2>
+<section id="определение-параметров-в-dict" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="определение-параметров-в-dict"><span class="header-section-number">7.2</span> Определение параметров в Dict</h2>
 <p>Базовый набор параметров (один эксперимент)</p>
-<div id="22" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>base_params <span class="op">=</span> <span class="fu">Dict</span>(</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>u0 <span class="op">=&gt;</span> [<span class="fl">1.0</span>],</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>α <span class="op">=&gt;</span> <span class="fl">0.3</span>,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>tspan <span class="op">=&gt;</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>),</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>solver <span class="op">=&gt;</span> <span class="fu">Tsit5</span>(),</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>saveat <span class="op">=&gt;</span> <span class="fl">0.1</span>,</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>experiment_name <span class="op">=&gt;</span> <span class="st">"base_experiment"</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Базовые параметры эксперимента:"</span>)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (key, value) <span class="kw">in</span> base_params</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">" </span><span class="sc">$</span>key<span class="st"> = </span><span class="sc">$</span>value<span class="st">"</span>)</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="70a1ac22" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>base_params <span class="op">=</span> <span class="fu">Dict</span>(</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>u0 <span class="op">=&gt;</span> [<span class="fl">1.0</span>],</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>α <span class="op">=&gt;</span> <span class="fl">0.3</span>,</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>tspan <span class="op">=&gt;</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>),</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>solver <span class="op">=&gt;</span> <span class="fu">Tsit5</span>(),</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>saveat <span class="op">=&gt;</span> <span class="fl">0.1</span>,</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>experiment_name <span class="op">=&gt;</span> <span class="st">"base_experiment"</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Базовые параметры эксперимента:"</span>)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (key, value) <span class="kw">in</span> base_params</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">" </span><span class="sc">$</span>key<span class="st"> = </span><span class="sc">$</span>value<span class="st">"</span>)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Базовые параметры эксперимента:
  α = 0.3
  u0 = [1.0]
  saveat = 0.1
- solver = OrdinaryDiffEqTsit5.Tsit5{typeof(OrdinaryDiffEqCore.trivial_limiter!), typeof(OrdinaryDiffEqCore.trivial_limiter!), Static.False}(OrdinaryDiffEqCore.trivial_limiter!, OrdinaryDiffEqCore.trivial_limiter!, static(false))
+ solver = Tsit5{typeof(OrdinaryDiffEqCore.trivial_limiter!), typeof(OrdinaryDiffEqCore.trivial_limiter!), Static.False}(OrdinaryDiffEqCore.trivial_limiter!, OrdinaryDiffEqCore.trivial_limiter!, static(false))
  experiment_name = base_experiment
  tspan = (0.0, 10.0)</code></pre>
 </div>
 </div>
 </section>
-<section id="функция-обертка-для-запуска-одного-эксперимента" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="функция-обертка-для-запуска-одного-эксперимента"><span class="header-section-number">6.4</span> Функция-обертка для запуска одного эксперимента</h2>
-<div id="24" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">run_single_experiment</span>(params<span class="op">::</span><span class="dt">Dict</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="pp">@unpack</span> u0, α, tspan, solver, saveat <span class="op">=</span> params</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> <span class="fu">ODEProblem</span>(exponential_growth!, u0, tspan, (α<span class="op">=</span>α,))</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> <span class="fu">solve</span>(prob, solver; saveat<span class="op">=</span>saveat)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    final_population <span class="op">=</span> <span class="fu">last</span>(sol.u)[<span class="fl">1</span>]</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    doubling_time <span class="op">=</span> <span class="fu">log</span>(<span class="fl">2</span>) <span class="op">/</span> α</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">Dict</span>(</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"solution"</span> <span class="op">=&gt;</span> sol,</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"time_points"</span> <span class="op">=&gt;</span> sol.t,</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"population_values"</span> <span class="op">=&gt;</span> <span class="fu">first</span>.(sol.u),</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"final_population"</span> <span class="op">=&gt;</span> final_population,</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"doubling_time"</span> <span class="op">=&gt;</span> doubling_time,</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"parameters"</span> <span class="op">=&gt;</span> params</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<section id="функция-обертка-для-запуска-одного-эксперимента" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="функция-обертка-для-запуска-одного-эксперимента"><span class="header-section-number">7.3</span> Функция-обертка для запуска одного эксперимента</h2>
+<div id="310a5be0" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">run_single_experiment</span>(params<span class="op">::</span><span class="dt">Dict</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="pp">@unpack</span> u0, α, tspan, solver, saveat <span class="op">=</span> params</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> <span class="fu">ODEProblem</span>(exponential_growth!, u0, tspan, (α<span class="op">=</span>α,))</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> <span class="fu">solve</span>(prob, solver; saveat<span class="op">=</span>saveat)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    final_population <span class="op">=</span> <span class="fu">last</span>(sol.u)[<span class="fl">1</span>]</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    doubling_time <span class="op">=</span> <span class="fu">log</span>(<span class="fl">2</span>) <span class="op">/</span> α</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">Dict</span>(</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"solution"</span> <span class="op">=&gt;</span> sol,</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"time_points"</span> <span class="op">=&gt;</span> sol.t,</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"population_values"</span> <span class="op">=&gt;</span> <span class="fu">first</span>.(sol.u),</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"final_population"</span> <span class="op">=&gt;</span> final_population,</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"doubling_time"</span> <span class="op">=&gt;</span> doubling_time,</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"parameters"</span> <span class="op">=&gt;</span> params</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>run_single_experiment (generic function with 1 method)</code></pre>
 </div>
 </div>
 </section>
-<section id="запуск-базового-эксперимента" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="запуск-базового-эксперимента"><span class="header-section-number">6.5</span> Запуск базового эксперимента</h2>
-<div id="26" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data, path <span class="op">=</span> <span class="fu">produce_or_load</span>(</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">datadir</span>(script_name, <span class="st">"single"</span>),</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    base_params,</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    run_single_experiment,</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    prefix <span class="op">=</span> <span class="st">"exp_growth"</span>,</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    tag <span class="op">=</span> <span class="cn">false</span>,</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    verbose <span class="op">=</span> <span class="cn">true</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Результаты базового эксперимента:"</span>)</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" Финальная популяция: "</span>, data[<span class="st">"final_population"</span>])</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" Время удвоения: "</span>, <span class="fu">round</span>(data[<span class="st">"doubling_time"</span>]; digits<span class="op">=</span><span class="fl">2</span>))</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" Файл результатов: "</span>, path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="запуск-базового-эксперимента" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="запуск-базового-эксперимента"><span class="header-section-number">7.4</span> Запуск базового эксперимента</h2>
+<div id="983f0b25" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>data, path <span class="op">=</span> <span class="fu">produce_or_load</span>(</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">datadir</span>(script_name, <span class="st">"single"</span>),</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    base_params,</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    run_single_experiment,</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    prefix <span class="op">=</span> <span class="st">"exp_growth"</span>,</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    tag <span class="op">=</span> <span class="cn">false</span>,</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    verbose <span class="op">=</span> <span class="cn">true</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Результаты базового эксперимента:"</span>)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" Финальная популяция: "</span>, data[<span class="st">"final_population"</span>])</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" Время удвоения: "</span>, <span class="fu">round</span>(data[<span class="st">"doubling_time"</span>]; digits<span class="op">=</span><span class="fl">2</span>))</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" Файл результатов: "</span>, path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84
+[ Info: File /home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/In[8]/single/exp_growth_experiment_name=base_experiment_saveat=0.1_α=0.3.jld2 does not exist. Producing it now...</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[ Info: File /home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/worker/single/exp_growth_experiment_name=base_experiment_saveat=0.1_α=0.3.jld2 does not exist. Producing it now...
-[ Info: File /home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/worker/single/exp_growth_experiment_name=base_experiment_saveat=0.1_α=0.3.jld2 saved.
-
+<pre><code>
 Результаты базового эксперимента:
  Финальная популяция: 20.085448516186737
  Время удвоения: 2.31
- Файл результатов: /home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/worker/single/exp_growth_experiment_name=base_experiment_saveat=0.1_α=0.3.jld2</code></pre>
+ Файл результатов: /home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/In[8]/single/exp_growth_experiment_name=base_experiment_saveat=0.1_α=0.3.jld2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[ Info: File /home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/data/In[8]/single/exp_growth_experiment_name=base_experiment_saveat=0.1_α=0.3.jld2 saved.</code></pre>
 </div>
 </div>
 </section>
-<section id="визуализация-базового-эксперимента" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="визуализация-базового-эксперимента"><span class="header-section-number">6.6</span> Визуализация базового эксперимента</h2>
-<div id="28" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> <span class="fu">plot</span>(data[<span class="st">"time_points"</span>], data[<span class="st">"population_values"</span>],</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="st">"α = </span><span class="sc">$</span>(base_params[<span class="op">:</span>α])<span class="st">"</span>,</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>          xlabel<span class="op">=</span><span class="st">"Время, t"</span>,</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>          ylabel<span class="op">=</span><span class="st">"Популяция, u(t)"</span>,</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>          title<span class="op">=</span><span class="st">"Экспоненциальный рост (базовый эксперимент)"</span>,</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>          lw<span class="op">=</span><span class="fl">2</span>,</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>          legend<span class="op">=:</span>topleft,</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>          grid<span class="op">=</span><span class="cn">true</span>)</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"single_experiment.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/worker/single_experiment.png"</code></pre>
+<section id="визуализация-базового-эксперимента" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="визуализация-базового-эксперимента"><span class="header-section-number">7.5</span> Визуализация базового эксперимента</h2>
+<div id="fbfcee5e" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> <span class="fu">plot</span>(data[<span class="st">"time_points"</span>], data[<span class="st">"population_values"</span>],</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="st">"α = </span><span class="sc">$</span>(base_params[<span class="op">:</span>α])<span class="st">"</span>,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>          xlabel<span class="op">=</span><span class="st">"Время, t"</span>,</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>          ylabel<span class="op">=</span><span class="st">"Популяция, u(t)"</span>,</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>          title<span class="op">=</span><span class="st">"Экспоненциальный рост (базовый эксперимент)"</span>,</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>          lw<span class="op">=</span><span class="fl">2</span>,</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>          legend<span class="op">=:</span>topleft,</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>          grid<span class="op">=</span><span class="cn">true</span>)</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"single_experiment.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/In[8]/single_experiment.png"</code></pre>
 </div>
 </div>
 </section>
-<section id="параметрическое-сканирование" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="параметрическое-сканирование"><span class="header-section-number">6.7</span> Параметрическое сканирование</h2>
+<section id="параметрическое-сканирование" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="параметрическое-сканирование"><span class="header-section-number">7.6</span> Параметрическое сканирование</h2>
 <p>Сетка параметров для сканирования</p>
-<div id="30" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> <span class="fu">Dict</span>(</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>u0 <span class="op">=&gt;</span> [[<span class="fl">1.0</span>]],</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>α <span class="op">=&gt;</span> [<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>, <span class="fl">1.0</span>],</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>tspan <span class="op">=&gt;</span> [(<span class="fl">0.0</span>, <span class="fl">10.0</span>)],</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>solver <span class="op">=&gt;</span> [<span class="fu">Tsit5</span>()],</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>saveat <span class="op">=&gt;</span> [<span class="fl">0.1</span>],</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>experiment_name <span class="op">=&gt;</span> [<span class="st">"parametric_scan"</span>]</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>all_params <span class="op">=</span> <span class="fu">dict_list</span>(param_grid)</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span> <span class="op">*</span> <span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"ПАРАМЕТРИЧЕСКОЕ СКАНИРОВАНИЕ"</span>)</span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Всего комбинаций параметров: "</span>, <span class="fu">length</span>(all_params))</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Исследуемые значения α: "</span>, param_grid[<span class="op">:</span>α])</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fa7a6c19" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> <span class="fu">Dict</span>(</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>u0 <span class="op">=&gt;</span> [[<span class="fl">1.0</span>]],</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>α <span class="op">=&gt;</span> [<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>, <span class="fl">1.0</span>],</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>tspan <span class="op">=&gt;</span> [(<span class="fl">0.0</span>, <span class="fl">10.0</span>)],</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>solver <span class="op">=&gt;</span> [<span class="fu">Tsit5</span>()],</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>saveat <span class="op">=&gt;</span> [<span class="fl">0.1</span>],</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span>experiment_name <span class="op">=&gt;</span> [<span class="st">"parametric_scan"</span>]</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>all_params <span class="op">=</span> <span class="fu">dict_list</span>(param_grid)</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span> <span class="op">*</span> <span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"ПАРАМЕТРИЧЕСКОЕ СКАНИРОВАНИЕ"</span>)</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Всего комбинаций параметров: "</span>, <span class="fu">length</span>(all_params))</span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Исследуемые значения α: "</span>, param_grid[<span class="op">:</span>α])</span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 ============================================================
@@ -523,55 +864,85 @@ u: 101-element Vector{Vector{Float64}}:
 </div>
 </div>
 </section>
-<section id="запуск-всех-экспериментов" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="запуск-всех-экспериментов"><span class="header-section-number">6.8</span> Запуск всех экспериментов</h2>
-<div id="32" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>all_results <span class="op">=</span> []</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>all_dfs <span class="op">=</span> []</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i, params) <span class="kw">in</span> <span class="fu">enumerate</span>(all_params)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">"Прогресс: </span><span class="sc">$</span>i<span class="st">/</span><span class="sc">$</span>(<span class="fu">length</span>(all_params))<span class="st"> | α = </span><span class="sc">$</span>(params[<span class="op">:</span>α])<span class="st">"</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    data, path <span class="op">=</span> <span class="fu">produce_or_load</span>(</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">datadir</span>(script_name, <span class="st">"parametric_scan"</span>),</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        params,</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>        run_single_experiment,</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>        prefix <span class="op">=</span> <span class="st">"scan"</span>,</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>        tag <span class="op">=</span> <span class="cn">false</span>,</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        verbose <span class="op">=</span> <span class="cn">false</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    result_summary <span class="op">=</span> <span class="fu">merge</span>(</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        params,</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Dict</span>(</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>            <span class="op">:</span>final_population <span class="op">=&gt;</span> data[<span class="st">"final_population"</span>],</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>            <span class="op">:</span>doubling_time <span class="op">=&gt;</span> data[<span class="st">"doubling_time"</span>],</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>            <span class="op">:</span>filepath <span class="op">=&gt;</span> path</span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(all_results, result_summary)</span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> <span class="fu">DataFrame</span>(</span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>        t <span class="op">=</span> data[<span class="st">"time_points"</span>],</span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>        u <span class="op">=</span> data[<span class="st">"population_values"</span>],</span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>        α <span class="op">=</span> <span class="fu">fill</span>(params[<span class="op">:</span>α], <span class="fu">length</span>(data[<span class="st">"time_points"</span>]))</span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(all_dfs, df)</span>
-<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="запуск-всех-экспериментов" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="запуск-всех-экспериментов"><span class="header-section-number">7.7</span> Запуск всех экспериментов</h2>
+<div id="4e45ef0a" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>all_results <span class="op">=</span> []</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>all_dfs <span class="op">=</span> []</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i, params) <span class="kw">in</span> <span class="fu">enumerate</span>(all_params)</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">"Прогресс: </span><span class="sc">$</span>i<span class="st">/</span><span class="sc">$</span>(<span class="fu">length</span>(all_params))<span class="st"> | α = </span><span class="sc">$</span>(params[<span class="op">:</span>α])<span class="st">"</span>)</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>    data, path <span class="op">=</span> <span class="fu">produce_or_load</span>(</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">datadir</span>(script_name, <span class="st">"parametric_scan"</span>),</span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>        params,</span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>        run_single_experiment,</span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>        prefix <span class="op">=</span> <span class="st">"scan"</span>,</span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>        tag <span class="op">=</span> <span class="cn">false</span>,</span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>        verbose <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a>    result_summary <span class="op">=</span> <span class="fu">merge</span>(</span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a>        params,</span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Dict</span>(</span>
+<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a>            <span class="op">:</span>final_population <span class="op">=&gt;</span> data[<span class="st">"final_population"</span>],</span>
+<span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a>            <span class="op">:</span>doubling_time <span class="op">=&gt;</span> data[<span class="st">"doubling_time"</span>],</span>
+<span id="cb43-29"><a href="#cb43-29" aria-hidden="true" tabindex="-1"></a>            <span class="op">:</span>filepath <span class="op">=&gt;</span> path</span>
+<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb43-31"><a href="#cb43-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb43-32"><a href="#cb43-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(all_results, result_summary)</span>
+<span id="cb43-33"><a href="#cb43-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-34"><a href="#cb43-34" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> <span class="fu">DataFrame</span>(</span>
+<span id="cb43-35"><a href="#cb43-35" aria-hidden="true" tabindex="-1"></a>        t <span class="op">=</span> data[<span class="st">"time_points"</span>],</span>
+<span id="cb43-36"><a href="#cb43-36" aria-hidden="true" tabindex="-1"></a>        u <span class="op">=</span> data[<span class="st">"population_values"</span>],</span>
+<span id="cb43-37"><a href="#cb43-37" aria-hidden="true" tabindex="-1"></a>        α <span class="op">=</span> <span class="fu">fill</span>(params[<span class="op">:</span>α], <span class="fu">length</span>(data[<span class="st">"time_points"</span>]))</span>
+<span id="cb43-38"><a href="#cb43-38" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb43-39"><a href="#cb43-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(all_dfs, df)</span>
+<span id="cb43-40"><a href="#cb43-40" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Прогресс: 1/5 | α = 0.1
-Прогресс: 2/5 | α = 0.3
+<pre><code>Прогресс: 1/5 | α = 0.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Прогресс: 2/5 | α = 0.3
 Прогресс: 3/5 | α = 0.5
 Прогресс: 4/5 | α = 0.8
 Прогресс: 5/5 | α = 1.0</code></pre>
 </div>
 </div>
 </section>
-<section id="анализ-и-визуализация-результатов" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="анализ-и-визуализация-результатов"><span class="header-section-number">6.9</span> Анализ и визуализация результатов</h2>
-<div id="34" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>results_df <span class="op">=</span> <span class="fu">DataFrame</span>(all_results)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Сводная таблица результатов:"</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(results_df[!, [<span class="op">:</span>α, <span class="op">:</span>final_population, <span class="op">:</span>doubling_time]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="анализ-и-визуализация-результатов" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="анализ-и-визуализация-результатов"><span class="header-section-number">7.8</span> Анализ и визуализация результатов</h2>
+<div id="ece3743e" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>results_df <span class="op">=</span> <span class="fu">DataFrame</span>(all_results)</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Сводная таблица результатов:"</span>)</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(results_df[!, [<span class="op">:</span>α, <span class="op">:</span>final_population, <span class="op">:</span>doubling_time]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Сводная таблица результатов:
@@ -587,108 +958,152 @@ u: 101-element Vector{Vector{Float64}}:
 </div>
 </div>
 <p>Сравнительный график всех траекторий</p>
-<div id="36" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> <span class="fu">plot</span>(size<span class="op">=</span>(<span class="fl">800</span>, <span class="fl">500</span>), dpi<span class="op">=</span><span class="fl">150</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> params <span class="kw">in</span> all_params</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    data, _ <span class="op">=</span> <span class="fu">produce_or_load</span>(</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">datadir</span>(script_name, <span class="st">"parametric_scan"</span>),</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        params,</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>        run_single_experiment,</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>        prefix <span class="op">=</span> <span class="st">"scan"</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot!</span>(p2, data[<span class="st">"time_points"</span>], data[<span class="st">"population_values"</span>],</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="st">"α = </span><span class="sc">$</span>(params[<span class="op">:</span>α])<span class="st">"</span>,</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>          lw<span class="op">=</span><span class="fl">2</span>,</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>          alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(p2,</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>      xlabel<span class="op">=</span><span class="st">"Время, t"</span>,</span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>      ylabel<span class="op">=</span><span class="st">"Популяция, u(t)"</span>,</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>      title<span class="op">=</span><span class="st">"Параметрическое исследование: влияние α на рост"</span>,</span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>      legend<span class="op">=:</span>topleft,</span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>      grid<span class="op">=</span><span class="cn">true</span>)</span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"parametric_scan_comparison.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/worker/parametric_scan_comparison.png"</code></pre>
+<div id="a7d771ea" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> <span class="fu">plot</span>(size<span class="op">=</span>(<span class="fl">800</span>, <span class="fl">500</span>), dpi<span class="op">=</span><span class="fl">150</span>)</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> params <span class="kw">in</span> all_params</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>    data, _ <span class="op">=</span> <span class="fu">produce_or_load</span>(</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">datadir</span>(script_name, <span class="st">"parametric_scan"</span>),</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>        params,</span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>        run_single_experiment,</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>        prefix <span class="op">=</span> <span class="st">"scan"</span></span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot!</span>(p2, data[<span class="st">"time_points"</span>], data[<span class="st">"population_values"</span>],</span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="st">"α = </span><span class="sc">$</span>(params[<span class="op">:</span>α])<span class="st">"</span>,</span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>          lw<span class="op">=</span><span class="fl">2</span>,</span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>          alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(p2,</span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>      xlabel<span class="op">=</span><span class="st">"Время, t"</span>,</span>
+<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a>      ylabel<span class="op">=</span><span class="st">"Популяция, u(t)"</span>,</span>
+<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a>      title<span class="op">=</span><span class="st">"Параметрическое исследование: влияние α на рост"</span>,</span>
+<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a>      legend<span class="op">=:</span>topleft,</span>
+<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a>      grid<span class="op">=</span><span class="cn">true</span>)</span>
+<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-31"><a href="#cb50-31" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"parametric_scan_comparison.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/In[8]/parametric_scan_comparison.png"</code></pre>
 </div>
 </div>
 <p>График зависимости времени удвоения от α</p>
-<div id="38" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> <span class="fu">plot</span>(results_df.α, results_df.doubling_time,</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>          seriestype<span class="op">=:</span>scatter,</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="st">"Численное решение"</span>,</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>          xlabel<span class="op">=</span><span class="st">"Скорость роста, α"</span>,</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>          ylabel<span class="op">=</span><span class="st">"Время удвоения, t₂"</span>,</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>          title<span class="op">=</span><span class="st">"Зависимость времени удвоения от α"</span>,</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>          markersize<span class="op">=</span><span class="fl">8</span>,</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>          markercolor<span class="op">=:</span>red,</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>          legend<span class="op">=:</span>topright)</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>α_range <span class="op">=</span> <span class="fl">0.1</span><span class="op">:</span><span class="fl">0.01</span><span class="op">:</span><span class="fl">1.0</span></span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(p3, α_range, <span class="fu">log</span>(<span class="fl">2</span>) <span class="op">./</span> α_range,</span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>      label<span class="op">=</span><span class="st">"Теория: t₂ = ln(2)/α"</span>,</span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>      lw<span class="op">=</span><span class="fl">2</span>,</span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>      linestyle<span class="op">=:</span>dash,</span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>      linecolor<span class="op">=:</span>blue)</span>
-<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"doubling_time_vs_alpha.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/worker/doubling_time_vs_alpha.png"</code></pre>
+<div id="9f17d09b" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> <span class="fu">plot</span>(results_df.α, results_df.doubling_time,</span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>          seriestype<span class="op">=:</span>scatter,</span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="st">"Численное решение"</span>,</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>          xlabel<span class="op">=</span><span class="st">"Скорость роста, α"</span>,</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>          ylabel<span class="op">=</span><span class="st">"Время удвоения, t₂"</span>,</span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>          title<span class="op">=</span><span class="st">"Зависимость времени удвоения от α"</span>,</span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>          markersize<span class="op">=</span><span class="fl">8</span>,</span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>          markercolor<span class="op">=:</span>red,</span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a>          legend<span class="op">=:</span>topright)</span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a>α_range <span class="op">=</span> <span class="fl">0.1</span><span class="op">:</span><span class="fl">0.01</span><span class="op">:</span><span class="fl">1.0</span></span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot!</span>(p3, α_range, <span class="fu">log</span>(<span class="fl">2</span>) <span class="op">./</span> α_range,</span>
+<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a>      label<span class="op">=</span><span class="st">"Теория: t₂ = ln(2)/α"</span>,</span>
+<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a>      lw<span class="op">=</span><span class="fl">2</span>,</span>
+<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a>      linestyle<span class="op">=:</span>dash,</span>
+<span id="cb53-25"><a href="#cb53-25" aria-hidden="true" tabindex="-1"></a>      linecolor<span class="op">=:</span>blue)</span>
+<span id="cb53-26"><a href="#cb53-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-27"><a href="#cb53-27" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"doubling_time_vs_alpha.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/In[8]/doubling_time_vs_alpha.png"</code></pre>
 </div>
 </div>
 </section>
-<section id="бенчмаркинг" class="level2" data-number="6.10">
-<h2 data-number="6.10" class="anchored" data-anchor-id="бенчмаркинг"><span class="header-section-number">6.10</span> Бенчмаркинг</h2>
-<div id="40" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span> <span class="op">*</span> <span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Бенчмаркинг для разных значений α"</span>)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>benchmark_results <span class="op">=</span> []</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> α_value <span class="kw">in</span> param_grid[<span class="op">:</span>α]</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    bench_params <span class="op">=</span> <span class="fu">Dict</span>(</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>u0 <span class="op">=&gt;</span> [<span class="fl">1.0</span>],</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>α <span class="op">=&gt;</span> α_value,</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>tspan <span class="op">=&gt;</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>),</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>solver <span class="op">=&gt;</span> <span class="fu">Tsit5</span>(),</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>saveat <span class="op">=&gt;</span> <span class="fl">0.1</span></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">benchmark_run</span>()</span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>        prob <span class="op">=</span> <span class="fu">ODEProblem</span>(exponential_growth!,</span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>                          bench_params[<span class="op">:</span>u0],</span>
-<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>                          bench_params[<span class="op">:</span>tspan],</span>
-<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>                          (α<span class="op">=</span>bench_params[<span class="op">:</span>α],))</span>
-<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">solve</span>(prob, bench_params[<span class="op">:</span>solver]; saveat<span class="op">=</span>bench_params[<span class="op">:</span>saveat])</span>
-<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Бенчмарк для α = </span><span class="sc">$</span><span class="st">α</span>_value<span class="st">:"</span>)</span>
-<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="pp">@benchmark</span> <span class="op">$</span><span class="fu">benchmark_run</span>() samples<span class="op">=</span><span class="fl">100</span> evals<span class="op">=</span><span class="fl">1</span></span>
-<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(benchmark_results, (α<span class="op">=</span>α_value, time<span class="op">=</span><span class="fu">median</span>(b).time<span class="op">/</span><span class="fl">1e9</span>))</span>
-<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">" Среднее время: "</span>, <span class="fu">round</span>(<span class="fu">median</span>(b).time<span class="op">/</span><span class="fl">1e9</span>; digits<span class="op">=</span><span class="fl">4</span>), <span class="st">" сек"</span>)</span>
-<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a>bench_df <span class="op">=</span> <span class="fu">DataFrame</span>(benchmark_results)</span>
-<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a>p4 <span class="op">=</span> <span class="fu">plot</span>(bench_df.α, bench_df.time,</span>
-<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a>          seriestype<span class="op">=:</span>scatter,</span>
-<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="st">"Время вычисления"</span>,</span>
-<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a>          xlabel<span class="op">=</span><span class="st">"Скорость роста, α"</span>,</span>
-<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a>          ylabel<span class="op">=</span><span class="st">"Время вычисления, сек"</span>,</span>
-<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a>          title<span class="op">=</span><span class="st">"Зависимость времени вычисления от α"</span>,</span>
-<span id="cb39-37"><a href="#cb39-37" aria-hidden="true" tabindex="-1"></a>          markersize<span class="op">=</span><span class="fl">8</span>,</span>
-<span id="cb39-38"><a href="#cb39-38" aria-hidden="true" tabindex="-1"></a>          markercolor<span class="op">=:</span>green,</span>
-<span id="cb39-39"><a href="#cb39-39" aria-hidden="true" tabindex="-1"></a>          legend<span class="op">=:</span>topleft)</span>
-<span id="cb39-40"><a href="#cb39-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-41"><a href="#cb39-41" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"computation_time_vs_alpha.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="бенчмаркинг" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="бенчмаркинг"><span class="header-section-number">7.9</span> Бенчмаркинг</h2>
+<div id="d39b8eac" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span> <span class="op">*</span> <span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Бенчмаркинг для разных значений α"</span>)</span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>benchmark_results <span class="op">=</span> []</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> α_value <span class="kw">in</span> param_grid[<span class="op">:</span>α]</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>    bench_params <span class="op">=</span> <span class="fu">Dict</span>(</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>u0 <span class="op">=&gt;</span> [<span class="fl">1.0</span>],</span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>α <span class="op">=&gt;</span> α_value,</span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>tspan <span class="op">=&gt;</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>),</span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>solver <span class="op">=&gt;</span> <span class="fu">Tsit5</span>(),</span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>saveat <span class="op">=&gt;</span> <span class="fl">0.1</span></span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-24"><a href="#cb56-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">benchmark_run</span>()</span>
+<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a>        prob <span class="op">=</span> <span class="fu">ODEProblem</span>(exponential_growth!,</span>
+<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a>                          bench_params[<span class="op">:</span>u0],</span>
+<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a>                          bench_params[<span class="op">:</span>tspan],</span>
+<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a>                          (α<span class="op">=</span>bench_params[<span class="op">:</span>α],))</span>
+<span id="cb56-29"><a href="#cb56-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">solve</span>(prob, bench_params[<span class="op">:</span>solver]; saveat<span class="op">=</span>bench_params[<span class="op">:</span>saveat])</span>
+<span id="cb56-30"><a href="#cb56-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb56-31"><a href="#cb56-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-32"><a href="#cb56-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Бенчмарк для α = </span><span class="sc">$</span><span class="st">α</span>_value<span class="st">:"</span>)</span>
+<span id="cb56-33"><a href="#cb56-33" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="pp">@benchmark</span> <span class="op">$</span><span class="fu">benchmark_run</span>() samples<span class="op">=</span><span class="fl">100</span> evals<span class="op">=</span><span class="fl">1</span></span>
+<span id="cb56-34"><a href="#cb56-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(benchmark_results, (α<span class="op">=</span>α_value, time<span class="op">=</span><span class="fu">median</span>(b).time<span class="op">/</span><span class="fl">1e9</span>))</span>
+<span id="cb56-35"><a href="#cb56-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">" Среднее время: "</span>, <span class="fu">round</span>(<span class="fu">median</span>(b).time<span class="op">/</span><span class="fl">1e9</span>; digits<span class="op">=</span><span class="fl">4</span>), <span class="st">" сек"</span>)</span>
+<span id="cb56-36"><a href="#cb56-36" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-37"><a href="#cb56-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-38"><a href="#cb56-38" aria-hidden="true" tabindex="-1"></a>bench_df <span class="op">=</span> <span class="fu">DataFrame</span>(benchmark_results)</span>
+<span id="cb56-39"><a href="#cb56-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-40"><a href="#cb56-40" aria-hidden="true" tabindex="-1"></a>p4 <span class="op">=</span> <span class="fu">plot</span>(bench_df.α, bench_df.time,</span>
+<span id="cb56-41"><a href="#cb56-41" aria-hidden="true" tabindex="-1"></a>          seriestype<span class="op">=:</span>scatter,</span>
+<span id="cb56-42"><a href="#cb56-42" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="st">"Время вычисления"</span>,</span>
+<span id="cb56-43"><a href="#cb56-43" aria-hidden="true" tabindex="-1"></a>          xlabel<span class="op">=</span><span class="st">"Скорость роста, α"</span>,</span>
+<span id="cb56-44"><a href="#cb56-44" aria-hidden="true" tabindex="-1"></a>          ylabel<span class="op">=</span><span class="st">"Время вычисления, сек"</span>,</span>
+<span id="cb56-45"><a href="#cb56-45" aria-hidden="true" tabindex="-1"></a>          title<span class="op">=</span><span class="st">"Зависимость времени вычисления от α"</span>,</span>
+<span id="cb56-46"><a href="#cb56-46" aria-hidden="true" tabindex="-1"></a>          markersize<span class="op">=</span><span class="fl">8</span>,</span>
+<span id="cb56-47"><a href="#cb56-47" aria-hidden="true" tabindex="-1"></a>          markercolor<span class="op">=:</span>green,</span>
+<span id="cb56-48"><a href="#cb56-48" aria-hidden="true" tabindex="-1"></a>          legend<span class="op">=:</span>topleft)</span>
+<span id="cb56-49"><a href="#cb56-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-50"><a href="#cb56-50" aria-hidden="true" tabindex="-1"></a><span class="fu">savefig</span>(<span class="fu">plotsdir</span>(script_name, <span class="st">"computation_time_vs_alpha.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 ============================================================
 Бенчмаркинг для разных значений α
-============================================================
-
+============================================================</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
 Бенчмарк для α = 0.1:
  Среднее время: 0.0002 сек
 
@@ -704,29 +1119,43 @@ u: 101-element Vector{Vector{Float64}}:
 Бенчмарк для α = 1.0:
  Среднее время: 0.0002 сек</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/worker/computation_time_vs_alpha.png"</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project/plots/In[8]/computation_time_vs_alpha.png"</code></pre>
 </div>
 </div>
 </section>
-<section id="сохранение-всех-результатов-1" class="level2" data-number="6.11">
-<h2 data-number="6.11" class="anchored" data-anchor-id="сохранение-всех-результатов-1"><span class="header-section-number">6.11</span> Сохранение всех результатов</h2>
-<div id="42" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@save</span> <span class="fu">datadir</span>(script_name, <span class="st">"all_results.jld2"</span>) base_params param_grid all_params results_df bench_df</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@save</span> <span class="fu">datadir</span>(script_name, <span class="st">"all_plots.jld2"</span>) p1 p2 p3 p4</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span> <span class="op">*</span> <span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"ЛАБОРАТОРНАЯ РАБОТА ЗАВЕРШЕНА"</span>)</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Результаты сохранены в:"</span>)</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" • data/</span><span class="sc">$</span>(script_name)<span class="st">/single/ - базовый эксперимент"</span>)</span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" • data/</span><span class="sc">$</span>(script_name)<span class="st">/parametric_scan/ - параметрическое сканирование"</span>)</span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" • data/</span><span class="sc">$</span>(script_name)<span class="st">/all_results.jld2 - сводные данные"</span>)</span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" • plots/</span><span class="sc">$</span>(script_name)<span class="st">/ - все графики"</span>)</span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Для анализа результатов используйте:"</span>)</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" using JLD2, DataFrames"</span>)</span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" @load </span><span class="sc">\"</span><span class="st">data/</span><span class="sc">$</span>(script_name)<span class="st">/all_results.jld2</span><span class="sc">\"</span><span class="st">"</span>)</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" println(results_df)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="сохранение-всех-результатов-1" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="сохранение-всех-результатов-1"><span class="header-section-number">7.10</span> Сохранение всех результатов</h2>
+<div id="3b9cf583" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DrWatson</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@quickactivate</span> <span class="st">"/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DifferentialEquations</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JLD2</span></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="pp">@save</span> <span class="fu">datadir</span>(script_name, <span class="st">"all_results.jld2"</span>) base_params param_grid all_params results_df bench_df</span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="pp">@save</span> <span class="fu">datadir</span>(script_name, <span class="st">"all_plots.jld2"</span>) p1 p2 p3 p4</span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span> <span class="op">*</span> <span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
+<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"ЛАБОРАТОРНАЯ РАБОТА ЗАВЕРШЕНА"</span>)</span>
+<span id="cb61-15"><a href="#cb61-15" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"="</span><span class="op">^</span><span class="fl">60</span>)</span>
+<span id="cb61-16"><a href="#cb61-16" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Результаты сохранены в:"</span>)</span>
+<span id="cb61-17"><a href="#cb61-17" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" • data/</span><span class="sc">$</span>(script_name)<span class="st">/single/ - базовый эксперимент"</span>)</span>
+<span id="cb61-18"><a href="#cb61-18" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" • data/</span><span class="sc">$</span>(script_name)<span class="st">/parametric_scan/ - параметрическое сканирование"</span>)</span>
+<span id="cb61-19"><a href="#cb61-19" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" • data/</span><span class="sc">$</span>(script_name)<span class="st">/all_results.jld2 - сводные данные"</span>)</span>
+<span id="cb61-20"><a href="#cb61-20" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" • plots/</span><span class="sc">$</span>(script_name)<span class="st">/ - все графики"</span>)</span>
+<span id="cb61-21"><a href="#cb61-21" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Для анализа результатов используйте:"</span>)</span>
+<span id="cb61-22"><a href="#cb61-22" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" using JLD2, DataFrames"</span>)</span>
+<span id="cb61-23"><a href="#cb61-23" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" @load </span><span class="sc">\"</span><span class="st">data/</span><span class="sc">$</span>(script_name)<span class="st">/all_results.jld2</span><span class="sc">\"</span><span class="st">"</span>)</span>
+<span id="cb61-24"><a href="#cb61-24" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">" println(results_df)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Warning: DrWatson could not find find a project file by recursively checking given `dir` and its parents. Returning `nothing` instead.
+│ (given dir: /home/vvmalyuga)
+└ @ DrWatson ~/.julia/packages/DrWatson/2QF5p/src/project_setup.jl:84</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 ============================================================
@@ -734,28 +1163,34 @@ u: 101-element Vector{Vector{Float64}}:
 ============================================================
 
 Результаты сохранены в:
- • data/worker/single/ - базовый эксперимент
- • data/worker/parametric_scan/ - параметрическое сканирование
- • data/worker/all_results.jld2 - сводные данные
- • plots/worker/ - все графики
+ • data/In[8]/single/ - базовый эксперимент
+ • data/In[8]/parametric_scan/ - параметрическое сканирование
+ • data/In[8]/all_results.jld2 - сводные данные
+ • plots/In[8]/ - все графики
 
 Для анализа результатов используйте:
  using JLD2, DataFrames
- @load "data/worker/all_results.jld2"
+ @load "data/In[8]/all_results.jld2"
  println(results_df)</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="выводы" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Выводы</h1>
-<p>В ходе работы была реализована модель экспоненциального роста.</p>
-</section>
-<section id="список-литературы" class="level1 unnumbered">
-<h1 class="unnumbered">Список литературы</h1>
-<div id="refs" role="list">
-
-</div>
+<section id="выводы" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Выводы</h1>
+<p>В ходе выполнения лабораторной работы:</p>
+<p>Создано рабочее пространство согласно методологии Denote с иерархией каталогов для курса и лабораторных работ.</p>
+<p>Установлены необходимые пакеты Julia: DrWatson, DifferentialEquations, Plots, DataFrames, Literate и другие для организации воспроизводимого научного проекта.</p>
+<p>Реализована модель экспоненциального роста <span class="math inline">\(\frac{du}{dt} = \alpha u\)</span> с использованием пакета DifferentialEquations.jl. Полученные численные результаты полностью совпадают с аналитическим решением <span class="math inline">\(u(t) = u_0 e^{\alpha t}\)</span>.</p>
+<p>Применено литературное программирование с помощью Literate.jl: создан скрипт с Markdown-разметкой, объединяющий код, пояснения и результаты.</p>
+<p>Выполнено параметрическое исследование для различных значений α = [0.1, 0.3, 0.5, 0.8, 1.0]. Подтверждена теоретическая зависимость времени удвоения <span class="math inline">\(T_2 = \ln(2)/\alpha\)</span>.</p>
+<p>Сгенерированы производные форматы:</p>
+<ul>
+<li><p>чистый код для непосредственного выполнения</p></li>
+<li><p>Jupyter notebook для интерактивной работы</p></li>
+<li><p>документация в формате Quarto для интеграции в отчет</p></li>
+</ul>
+<p>Таким образом, цель работы достигнута — модель экспоненциального роста успешно исследована с использованием инструментов воспроизводимых научных исследований.</p>
 </section>
 
 </main>

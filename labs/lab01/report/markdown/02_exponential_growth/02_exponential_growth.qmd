@@ -1,5 +1,8 @@
+
 using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
+project_path = normpath(joinpath(@__DIR__, "../../project"))
+@quickactivate project_path
+
 using DifferentialEquations
 using Plots
 using DataFrames
@@ -19,16 +22,6 @@ mkpath(data_subdir)
 # Установка каталогов
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 script_name = splitext(basename(@__FILE__))[1]
 mkpath(plotsdir(script_name))
 mkpath(datadir(script_name))
@@ -38,16 +31,6 @@ mkpath(datadir(script_name))
 Модель: du/dt = α * u
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 function exponential_growth!(du, u, p, t)
     α = p.α
     du[1] = α * u[1]
@@ -58,16 +41,6 @@ end
 Базовый набор параметров (один эксперимент)
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 base_params = Dict(
     :u0 => [1.0],
     :α => 0.3,
@@ -86,16 +59,6 @@ end
 ## Функция-обертка для запуска одного эксперимента
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 function run_single_experiment(params::Dict)
     @unpack u0, α, tspan, solver, saveat = params
     prob = ODEProblem(exponential_growth!, u0, tspan, (α=α,))
@@ -116,16 +79,6 @@ end
 ## Запуск базового эксперимента
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 data, path = produce_or_load(
     datadir(script_name, "single"),
     base_params,
@@ -144,16 +97,6 @@ println(" Файл результатов: ", path)
 ## Визуализация базового эксперимента
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 p1 = plot(data["time_points"], data["population_values"],
           label="α = $(base_params[:α])",
           xlabel="Время, t",
@@ -170,16 +113,6 @@ savefig(plotsdir(script_name, "single_experiment.png"))
 Сетка параметров для сканирования
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 param_grid = Dict(
     :u0 => [[1.0]],
     :α => [0.1, 0.3, 0.5, 0.8, 1.0],
@@ -201,16 +134,6 @@ println("="^60)
 ## Запуск всех экспериментов
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 all_results = []
 all_dfs = []
 
@@ -247,16 +170,6 @@ end
 ## Анализ и визуализация результатов
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 results_df = DataFrame(all_results)
 println("\nСводная таблица результатов:")
 println(results_df[!, [:α, :final_population, :doubling_time]])
@@ -265,16 +178,6 @@ println(results_df[!, [:α, :final_population, :doubling_time]])
 Сравнительный график всех траекторий
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 p2 = plot(size=(800, 500), dpi=150)
 for params in all_params
     data, _ = produce_or_load(
@@ -302,16 +205,6 @@ savefig(plotsdir(script_name, "parametric_scan_comparison.png"))
 График зависимости времени удвоения от α
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 p3 = plot(results_df.α, results_df.doubling_time,
           seriestype=:scatter,
           label="Численное решение",
@@ -335,16 +228,6 @@ savefig(plotsdir(script_name, "doubling_time_vs_alpha.png"))
 ## Бенчмаркинг
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 println("\n" * "="^60)
 println("Бенчмаркинг для разных значений α")
 println("="^60)
@@ -391,16 +274,6 @@ savefig(plotsdir(script_name, "computation_time_vs_alpha.png"))
 ## Сохранение всех результатов
 
 ```{julia}
-
-using DrWatson
-@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
-using DifferentialEquations
-using Plots
-using DataFrames
-using JLD2
-using BenchmarkTools
-
-
 @save datadir(script_name, "all_results.jld2") base_params param_grid all_params results_df bench_df
 @save datadir(script_name, "all_plots.jld2") p1 p2 p3 p4
 
