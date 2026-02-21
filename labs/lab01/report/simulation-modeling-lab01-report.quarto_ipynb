@@ -1,0 +1,247 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "## Author\n",
+        "author:\n",
+        "  name: Дмитрий Сергеевич Кулябов\n",
+        "  degrees: DSc\n",
+        "  orcid: 0000-0002-0877-7063\n",
+        "  email: kulyabov-ds@rudn.ru\n",
+        "  affiliation:\n",
+        "    - name: Российский университет дружбы народов\n",
+        "      country: Российская Федерация\n",
+        "      postal-code: 117198\n",
+        "      city: Москва\n",
+        "      address: ул. Миклухо-Маклая, д. 6\n",
+        "\n",
+        "## Title\n",
+        "title: \"Шаблон отчёта по лабораторной работе\"\n",
+        "subtitle: \"Простейший вариант\"\n",
+        "license: \"CC BY\"\n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Цель работы\n",
+        "\n",
+        "Здесь приводится формулировка цели лабораторной работы.\n",
+        "Формулировки цели для каждой лабораторной работы приведены в методических указаниях.\n",
+        "\n",
+        "Цель данного шаблона --- максимально упростить подготовку отчётов по лабораторным работам.\n",
+        "Модифицируя данный шаблон, студенты смогут без труда подготовить отчёт по лабораторным работам, а также познакомиться с основными возможностями разметки Markdown.\n",
+        "\n",
+        "# Задание\n",
+        "\n",
+        "Здесь приводится описание задания в соответствии с рекомендациями методического пособия и выданным вариантом.\n",
+        "\n",
+        "# Теоретическое введение\n",
+        "\n",
+        "Здесь описываются теоретические аспекты, связанные с выполнением работы.\n",
+        "\n",
+        "Например, в [табл. @tbl-std-dir] приведено краткое описание стандартных каталогов Unix.\n",
+        "\n",
+        "| Имя каталога | Описание каталога                                                                                                          |\n",
+        "|--------------|----------------------------------------------------------------------------------------------------------------------------|\n",
+        "| `/`          | Корневая директория, содержащая всю файловую                                                                               |\n",
+        "| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |\n",
+        "| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |\n",
+        "| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |\n",
+        "| `/media`     | Точки монтирования для сменных носителей                                                                                   |\n",
+        "| `/root`      | Домашняя директория пользователя  `root`                                                                                   |\n",
+        "| `/tmp`       | Временные файлы                                                                                                            |\n",
+        "| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |\n",
+        "\n",
+        ": Описание некоторых каталогов файловой системы GNU Linux {#tbl-std-dir}\n",
+        "\n",
+        "Более подробно про Unix см. в [@tanenbaum_book_modern-os_ru; @robbins_book_bash_en; @zarrelli_book_mastering-bash_en; @newham_book_learning-bash_en].\n",
+        "\n",
+        "# Выполнение лабораторной работы\n",
+        "\n",
+        "Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию ([рис. @fig-001]).\n",
+        "\n",
+        "![V Сольвеевский конгресс (1927) «Электроны и фотоны»](image/solvay.jpg){#fig-001 width=70%}\n",
+        "\n",
+        "\n",
+        "\n",
+        "# Экспоненциальный рост\n",
+        "**Цель:** Исследовать решение уравнения du/dt = αu.\n",
+        "\n",
+        "## Инициализация проекта и загрузка пакетов"
+      ],
+      "id": "f60e0197"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "using DrWatson\n",
+        "@quickactivate \"project\"\n",
+        "using DifferentialEquations\n",
+        "using Plots\n",
+        "using DataFrames\n",
+        "using JLD2\n",
+        "\n",
+        "script_name = splitext(basename(PROGRAM_FILE))[1]\n",
+        "mkpath(plotsdir(script_name))\n",
+        "mkpath(datadir(script_name))"
+      ],
+      "id": "fe69154e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Определение модели\n",
+        "Уравнение экспоненциального роста:\n",
+        "\n",
+        "du/dt = αu, u(0) = u0"
+      ],
+      "id": "d0477806"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "function exponential_growth!(du, u, p, t)\n",
+        "    α = p\n",
+        "    du[1] = α * u[1]\n",
+        "end"
+      ],
+      "id": "4698385a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Первый запуск с параметрами по умолчанию\n",
+        "Зададим начальные параметры:"
+      ],
+      "id": "3be0b32c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "u0 = [1.0]\n",
+        "α = 0.3\n",
+        "tspan = (0.0, 10.0)\n",
+        "\n",
+        "prob = ODEProblem(exponential_growth!, u0, tspan, α)\n",
+        "sol = solve(prob, Tsit5(), saveat=0.1)"
+      ],
+      "id": "f2cfbfb3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Визуализация результатов\n",
+        "Построим график решения:"
+      ],
+      "id": "fee17bb5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plot(sol, label=\"u(t)\", xlabel=\"Время t\", ylabel=\"Популяция u\", title=\"Экспоненциальный рост (α = $α)\", lw=2, legend=:topleft)\n",
+        "savefig(plotsdir(script_name, \"exponential_growth_α=$α.png\"))"
+      ],
+      "id": "3ddc1969",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Анализ результатов\n",
+        "Создадим таблицу с данными:"
+      ],
+      "id": "aec65cd9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df = DataFrame(t=sol.t, u=first.(sol.u))\n",
+        "println(\"Первые 5 строк результатов:\")\n",
+        "println(first(df, 5))"
+      ],
+      "id": "9c9c3b2f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Вычислим удвоение популяции:"
+      ],
+      "id": "5ca80a6d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "doubling_time = log(2) / α\n",
+        "println(\"\\nАналитическое время удвоения: \", round(doubling_time; digits=2))"
+      ],
+      "id": "c3c9080c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Сохранение всех результатов"
+      ],
+      "id": "a40c4ac9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "@save datadir(script_name, \"all_results.jld2\") df"
+      ],
+      "id": "7dde6409",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Выводы\n",
+        "\n",
+        "Здесь кратко описываются итоги проделанной работы.\n",
+        "\n",
+        "# Список литературы{.unnumbered}\n",
+        "\n",
+        "::: {#refs}\n",
+        ":::"
+      ],
+      "id": "00adb9b7"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "julia-1.10",
+      "language": "julia",
+      "display_name": "Julia 1.10",
+      "path": "/home/vvmalyuga/.local/share/jupyter/kernels/julia-1.10"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
