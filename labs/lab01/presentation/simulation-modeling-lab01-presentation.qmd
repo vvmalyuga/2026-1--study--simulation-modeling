@@ -8,12 +8,14 @@ author:
 title: "Лабораторная работа №1"
 subtitle: "Подготовка стенда"
 format:
-  revealjs:
-    theme: beige
-    slide-number: true
   beamer:
     theme: metropolis
     aspectratio: 169
+    section-titles: true
+    lang: ru
+    babel-lang: russian
+    babel-otherlangs: english
+    keep-tex: true
 date: "2026-02-21"
 ---
 
