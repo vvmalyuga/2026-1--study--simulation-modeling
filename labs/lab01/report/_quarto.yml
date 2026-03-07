@@ -1,7 +1,17 @@
 project:
+<<<<<<< HEAD
   type: default
   output-dir: "_output"
 
+=======
+  title: "report"
+  output-dir: "_output"
+
+engine: julia
+julia:
+  exeflags: ["--project=../project"]
+
+>>>>>>> develop
 format:
   html:
     toc: true

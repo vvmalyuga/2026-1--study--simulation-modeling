@@ -6,9 +6,15 @@ standalone: true
 self-contained: true
 
 ## Julia support
+<<<<<<< HEAD
 # engine: julia
 # julia:
 #   exeflags: ["--project=../project"]
+=======
+#engine: julia
+julia:
+  exeflags: ["--project=../project"]
+>>>>>>> develop
 
 ## Generic options
 lang: ru-RU
@@ -34,7 +40,11 @@ format:
     toc-depth: 2
   ### Pdf output format
   pdf:
+<<<<<<< HEAD
     # pdf-engine: xelatex
+=======
+    pdf-engine: xelatex
+>>>>>>> develop
     ### minted support
     # filters:
     #   - minted-quarto
