@@ -1,0 +1,115 @@
+using DrWatson
+@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
+using DifferentialEquations
+using Plots
+using DataFrames
+using JLD2
+using BenchmarkTools
+
+plots_subdir = plotsdir("01_exponential_growth_lit")
+data_subdir = datadir("01_exponential_growth_lit")
+mkpath(plots_subdir)
+mkpath(data_subdir)
+
+
+# Экспоненциальный рост
+**Цель:** Исследовать решение уравнения du/dt = αu.
+
+## Определение модели
+Уравнение экспоненциального роста:
+
+du/dt = αu, u(0) = u0
+
+```{julia}
+using DrWatson
+@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
+using DifferentialEquations
+using Plots
+using DataFrames
+using JLD2
+using BenchmarkTools
+
+function exponential_growth!(du, u, p, t)
+    α = p
+    du[1] = α * u[1]
+end
+```
+
+## Первый запуск с параметрами по умолчанию
+Зададим начальные параметры:
+
+```{julia}
+
+using DrWatson
+@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
+using DifferentialEquations
+using Plots
+using DataFrames
+using JLD2
+using BenchmarkTools
+
+u0 = [1.0]
+α = 0.3
+tspan = (0.0, 10.0)
+
+prob = ODEProblem(exponential_growth!, u0, tspan, α)
+sol = solve(prob, Tsit5(), saveat=0.1)
+```
+
+## Визуализация результатов
+Построим график решения:
+
+```{julia}
+using DrWatson
+@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
+using DifferentialEquations
+using Plots
+using DataFrames
+using JLD2
+using BenchmarkTools
+
+plots_subdir = plotsdir("01_exponential_growth_lit")
+mkpath(plots_subdir)
+
+plot(sol, label="u(t)", xlabel="Время t", ylabel="Популяция u", 
+     title="Экспоненциальный рост (α = $α)", lw=2, legend=:topleft)
+savefig(joinpath(plots_subdir, "exponential_growth_α=$α.png"))
+```
+
+## Анализ результатов
+Создадим таблицу с данными:
+
+```{julia}
+using DrWatson
+@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
+using DataFrames
+
+df = DataFrame(t=sol.t, u=first.(sol.u))
+println("Первые 5 строк результатов:")
+println(first(df, 5))
+```
+
+Вычислим удвоение популяции:
+
+```{julia}
+using DrWatson
+@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
+
+doubling_time = log(2) / α
+println("\nАналитическое время удвоения: ", round(doubling_time; digits=2))
+```
+
+## Сохранение всех результатов
+
+```{julia}
+using DrWatson
+@quickactivate "/home/vvmalyuga/work/study/2026-1/2026-1==study--simulation-modeling/labs/lab01/project"
+using JLD2
+using DataFrames
+
+data_subdir = datadir("01_exponential_growth_lit")
+mkpath(data_subdir)
+
+@save joinpath(data_subdir, "all_results.jld2") df
+println("Результаты сохранены в: ", joinpath(data_subdir, "all_results.jld2"))
+```
