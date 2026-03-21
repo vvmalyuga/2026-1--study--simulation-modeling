@@ -1,0 +1,12 @@
+---
+title: "Test"
+format: html
+engine: julia
+julia:
+  exeflags: ["--project=../project"]
+---
+
+```{julia}
+using DrWatson
+println("Julia works!")
+
