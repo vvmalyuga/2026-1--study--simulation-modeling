@@ -1,0 +1,35 @@
+using DrWatson
+@quickactivate "project"
+using Agents, DataFrames, Plots
+include(srcdir("sir_model_with_quarantine.jl"))
+
+function simulate_without_quarantine()
+    model = initialize_sir_quarantine(; quarantine_threshold=1.0) # никогда не закрываем
+    infected = Int[]
+    for step in 1:100
+        Agents.step!(model, 1)
+        push!(infected, count(a.status == :I for a in allagents(model)))
+    end
+    return infected, model
+end
+
+function simulate_with_quarantine(threshold)
+    model = initialize_sir_quarantine(; quarantine_threshold=threshold)
+    infected = Int[]
+    for step in 1:100
+        Agents.step!(model, 1)
+        push!(infected, count(a.status == :I for a in allagents(model)))
+    end
+    return infected, model
+end
+
+infected_without, model_without = simulate_without_quarantine()
+infected_with_q, model_with_q = simulate_with_quarantine(0.1)
+
+println("Пик без карантина: $(maximum(infected_without)), с карантином: $(maximum(infected_with_q))")
+println("Общая численность в конце без карантина: $(nagents(model_without)), с карантином: $(nagents(model_with_q))")
+println("Умерло без карантина: $(3000 - nagents(model_without)), с карантином: $(3000 - nagents(model_with_q))")
+
+plot(1:100, infected_without, label="Без карантина", xlabel="Дни", ylabel="Инфицированные", lw=2)
+plot!(1:100, infected_with_q, label="Карантин при 10%", lw=2)
+savefig(plotsdir("quarantine_effect.png"))
