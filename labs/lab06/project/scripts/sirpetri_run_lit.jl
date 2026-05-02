@@ -1,0 +1,46 @@
+# # Базовый прогон модели SIR (сети Петри)
+#
+# **Цель**: выполнить детерминированную (ODE) и стохастическую (алгоритм Гиллеспи)
+# симуляции эпидемии SIR с параметрами по умолчанию,
+# сохранить результаты в `data/` и показать графики.
+#
+# ## Инициализация проекта
+using DrWatson
+@quickactivate "project"
+using Random
+include(srcdir("SIRPetri.jl"))
+using .SIRPetri
+using DataFrames, CSV, Plots
+
+# ## Параметры эксперимента
+β = 0.3   # коэффициент заражения
+γ = 0.1   # коэффициент выздоровления
+tmax = 100.0  # длительность симуляции
+
+# ## Построение сети Петри
+net, u0, states = build_sir_network(β, γ)
+
+# ## Детерминированная симуляция
+df_det = simulate_deterministic(net, u0, (0.0, tmax); saveat=0.5, rates=[β, γ])
+CSV.write(datadir("sir_det.csv"), df_det)
+
+# ## Стохастическая симуляция
+Random.seed!(123)  # фиксируем генератор для воспроизводимости
+df_stoch = simulate_stochastic(net, u0, (0.0, tmax); rates=[β, γ])
+CSV.write(datadir("sir_stoch.csv"), df_stoch)
+
+# ## Визуализация
+p_det = plot_sir(df_det)
+savefig(plotsdir("sir_det_dynamics.png"))
+if isinteractive()
+    display(p_det)
+end
+
+p_stoch = plot_sir(df_stoch)
+savefig(plotsdir("sir_stoch_dynamics.png"))
+if isinteractive()
+    display(p_stoch)
+end
+
+# ## Завершение
+println("Базовый прогон завершён. Результаты в data/ и plots/")
